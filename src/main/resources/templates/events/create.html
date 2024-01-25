@@ -37,6 +37,27 @@
         </label>
     </div>
     <div class="form-group">
+        <label>Location
+            <input th:field="${event.location}" class = "form-control">
+        </label>
+        <p class = "error" th:errors="${event.location}"></p>
+    </div>
+    <div class="form-group">
+        <label>Do you need to register?
+            <select th:field="${event.registration}">
+                <option th:text="Yes" th:value="${event.registration}">
+                <option th:text="No" th:value="${event.registration}">
+            </select>
+        </label>
+        <p class = "error" th:errors="${event.registration}"></p>
+    </div>
+    <div class="form-group">
+        <label>How many will be attending?
+            <input th:field="${event.numberOfAttendees}" class="form-control">
+        </label>
+        <p class="error" th:erros="${event.numberOfAttendees}"></p>
+    </div>
+    <div class="form-group">
         <input type="submit" value="Create" class="btn btn-success">
     </div>
 </form>

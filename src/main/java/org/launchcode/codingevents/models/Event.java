@@ -1,8 +1,6 @@
 package org.launchcode.codingevents.models;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 
 import java.util.Objects;
 
@@ -27,12 +25,26 @@ public class Event {
 
     private EventType type;
 
-    public Event(String name, String description, String contactEmail, EventType type) {
+    @NotBlank(message="Location cannot be left blank.")
+    private String location;
+
+    @AssertTrue(message = "Attendee must register.")
+    private String registration;
+
+    @Positive(message="Number of attendees must be one or more.")
+    private int numberOfAttendees;
+
+    public Event(String name, String description, String contactEmail,
+                 EventType type, String location, String registration,
+                 int numberOfAttendees) {
         this();
         this.name = name;
         this.description = description;
         this.contactEmail = contactEmail;
         this.type = type;
+        this.location = location;
+        this.registration = registration;
+        this.numberOfAttendees = numberOfAttendees;
     }
 
     public Event() {
@@ -70,6 +82,30 @@ public class Event {
 
     public void setType(EventType type) {
         this.type = type;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getRegistration() {
+        return registration;
+    }
+
+    public void setRegistration(String registration) {
+        this.registration = registration;
+    }
+
+    public int getNumberOfAttendees() {
+        return numberOfAttendees;
+    }
+
+    public void setNumberOfAttendees(int numberOfAttendees) {
+        this.numberOfAttendees = numberOfAttendees;
     }
 
     public int getId() {

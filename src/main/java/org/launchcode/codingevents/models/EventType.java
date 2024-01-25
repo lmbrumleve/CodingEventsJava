@@ -13,4 +13,10 @@ public enum EventType {
     public String getDisplayName() {
         return displayName;
     }
+
+//    public enum RegistrationStatus {
+//        YES("Yes"),
+//        NO("No");
+//
+//    }
 }
