@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping
+@RequestMapping("eventCategories")
 public class EventCategoryController {
 
     @Autowired
@@ -27,14 +27,14 @@ public class EventCategoryController {
         return "eventCategories/index";
     }
 
-    @GetMapping
+    @GetMapping("create")
     public String renderCreateEventCategoryForm (Model model) {
         model.addAttribute("title", "Create Category");
         model.addAttribute(new EventCategory());
         return "eventCategories/create";
     }
 
-    @PostMapping
+    @PostMapping("create")
     public String processCreateEventForm(@Valid @ModelAttribute EventCategory eventCategory,
                                          Errors errors, Model model) {
         if(errors.hasErrors()) {
